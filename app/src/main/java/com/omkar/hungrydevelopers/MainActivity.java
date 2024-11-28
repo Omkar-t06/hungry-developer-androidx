@@ -1,5 +1,6 @@
 package com.omkar.hungrydevelopers;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -27,5 +28,10 @@ public class MainActivity extends AppCompatActivity {
 
         starterCard = findViewById(R.id.card_view_starters);
         mainsCard = findViewById(R.id.card_view_mains);
+
+        starterCard.setOnClickListener((view) -> {
+            Intent starterActivtyIntent = new Intent(MainActivity.this,StarterActivity.class);
+            startActivity(starterActivtyIntent);
+        });
     }
 }
