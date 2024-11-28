@@ -1,7 +1,9 @@
 package com.omkar.hungrydevelopers;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         starterCard = findViewById(R.id.card_view_starters);
         mainsCard = findViewById(R.id.card_view_mains);
+        TextView emailTextView = findViewById(R.id.text_view_email_address);
 
         starterCard.setOnClickListener((view) -> {
             Intent starterActivtyIntent = new Intent(MainActivity.this,StarterActivity.class);
@@ -37,6 +40,12 @@ public class MainActivity extends AppCompatActivity {
         mainsCard.setOnClickListener((view) -> {
             Intent mainCourseActivityIntent = new Intent(MainActivity.this,MainCourseActivity.class);
             startActivity(mainCourseActivityIntent);
+        });
+
+        emailTextView.setOnClickListener((view) -> {
+            Intent launchEmailAppIntent = new Intent(Intent.ACTION_SENDTO);
+            launchEmailAppIntent.setData(Uri.parse("mailto:thehungrydevelopers@dev.com"));
+            startActivity(launchEmailAppIntent);
         });
     }
 }
